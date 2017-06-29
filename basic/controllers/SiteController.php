@@ -87,7 +87,7 @@ class SiteController extends Controller
      * @return Response
      */
     public function actionLogout(){
-        Yii::$app->user->logout()
+        Yii::$app->user->logout();
 
         return $this->goHome();
     }
@@ -133,5 +133,6 @@ class SiteController extends Controller
             return $this->render('entry', ['model' => $model]);
         }
     }
-?>
+}
 
+?>
