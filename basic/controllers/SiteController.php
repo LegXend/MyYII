@@ -89,6 +89,7 @@ class SiteController extends Controller
      *
      * @return Response
      */
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -125,8 +126,31 @@ class SiteController extends Controller
     }
     
 
+<<<<<<< HEAD
+
+    public function actionSay($message = "Hello"){
+        return $this->render("say", ["message" => $message]);
+    }
+
+
+    public function actionEntry(){
+        $model = new EntryForm;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            return $this->render('entry-confirm', ['model' => $model]);
+        } else {
+            // 无论是初始化显示还是数据验证错误
+            return $this->render('entry', ['model' => $model]);
+        }
+    }
+}
+?>
+
+=======
     public function actionSay($message = '你好')
     {
         return $this->render('say', ['message' => $message]);
     }
 }
+>>>>>>> 9b4bc992aaffd9b86181fb78cd8c0b7f06365b63
