@@ -141,6 +141,10 @@ class SiteController extends Controller
             return $this->render('entry', ['model' => $model]);
         }
     }
+
+    public function actionTranslation() {
+       echo \Yii::t('app', 'This is a string to translate');
+    }
 }
 ?>
 

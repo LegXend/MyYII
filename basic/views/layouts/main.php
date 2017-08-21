@@ -35,13 +35,13 @@ AppAsset::register($this);
         ],
     ]);
     $navItems=[
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Status', 'url' => ['/status/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']]
+        ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+        ['label' => Yii::t('app','Status'), 'url' => ['/status/index']],
+        ['label' => Yii::t('app','About'), 'url' => ['/site/about']],
+        ['label' => Yii::t('app','Contact'), 'url' => ['/site/contact']]
       ];
     if (Yii::$app->user->isGuest) {
-        array_push($navItems,['label' => 'Sign In', 'url' => ['/user/login']],['label' => 'Sign Up', 'url' => ['/user/register']]);
+        array_push($navItems,['label' =>  Yii::t('app','Sign In'), 'url' => ['/user/login']],['label' => Yii::t('app','Sign Up'), 'url' => ['/user/register']]);
       } else {
         array_push($navItems,['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
