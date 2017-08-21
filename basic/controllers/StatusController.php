@@ -5,12 +5,9 @@ namespace app\controllers;
 use Yii;
 use app\models\Status;
 use app\models\StatusSearch;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 
 /**
  * StatusController implements the CRUD actions for Status model.
@@ -68,17 +65,13 @@ class StatusController extends Controller
     {
         $model = new Status();
 
-        if ($model->load(Yii::$app->request->post())) {
-          $model->created_at = time();
-          $model->updated_at = time();
-
-           if ($model->save()) {             
-             return $this->redirect(['view', 'id' => $model->id]);             
-           } 
-        } 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**
